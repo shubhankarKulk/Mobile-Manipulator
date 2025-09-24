@@ -1,2 +1,8 @@
 # Mobile-Manipulator
-Capstone Project based on KUKA Mobile Manipulator
+In this capstone project, I have created six files based on the given milestones.
+-Milestone 1: For milestone 1, the file nextState.py predicts the next state of the robot after it is given an initial configuration. It will return the new state, which will be a 12 vector. The NextState function takes the current speeds and the current configuration into consideration, and with the help of additional functions such as NextStateWheels and AngleUpdate, it predicts the next state of the robot.
+-Milestone 2: For the trajectory formation, two codes, namely trajectory_generator.py and timing_calc.py are present. In the timing_calc.py code, the time duration and the sequence of operations is calculated. With this information, the trajectory_generator.py code calculates a screw trajectory and saves these values in a CSV file.
+-Milestone 3: For Feedforward and Feedback controls, the code feedback_control.py is written. Here, we have to calculate the Jacobian of the robot, which includes the Jacobian of the arm as well as the base. This creates a 6xN matrix. The function FeedbackControl returns the values of speeds and error in the robot, which satisfies the purpose of the code.
+-To execute this code, the final_code.py code helps us create csv files for the 13 vector state which consists of wheel angles, joint angles, position of the robot and the state of the gripper.
+
+For defining other matrices and variables, the code variables.py is written. Description of each variable is given in the code. In order to perform the newTask mentioned, we need to change the value of Tsc_init to robot.Tsc_init_2 and Tsc_final to robot.Tsc_final_2 in the code timing_calc.py. To execute the code for overshoot, the gain values of P and I should be changed to 2 and 5 in the variables.py code.

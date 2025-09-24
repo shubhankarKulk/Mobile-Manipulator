@@ -1,0 +1,4 @@
+Initial Variable Calculation Complete
+Trajectory Generation Complete
+Final CSV file Generated
+Plot Complete
