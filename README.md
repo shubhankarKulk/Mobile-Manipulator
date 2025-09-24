@@ -1,8 +1,48 @@
-# Mobile-Manipulator
-In this capstone project, I have created six files based on the given milestones.
--Milestone 1: For milestone 1, the file nextState.py predicts the next state of the robot after it is given an initial configuration. It will return the new state, which will be a 12 vector. The NextState function takes the current speeds and the current configuration into consideration, and with the help of additional functions such as NextStateWheels and AngleUpdate, it predicts the next state of the robot.
--Milestone 2: For the trajectory formation, two codes, namely trajectory_generator.py and timing_calc.py are present. In the timing_calc.py code, the time duration and the sequence of operations is calculated. With this information, the trajectory_generator.py code calculates a screw trajectory and saves these values in a CSV file.
--Milestone 3: For Feedforward and Feedback controls, the code feedback_control.py is written. Here, we have to calculate the Jacobian of the robot, which includes the Jacobian of the arm as well as the base. This creates a 6xN matrix. The function FeedbackControl returns the values of speeds and error in the robot, which satisfies the purpose of the code.
--To execute this code, the final_code.py code helps us create csv files for the 13 vector state which consists of wheel angles, joint angles, position of the robot and the state of the gripper.
+# Mobile-Manipulator Capstone Project
 
-For defining other matrices and variables, the code variables.py is written. Description of each variable is given in the code. In order to perform the newTask mentioned, we need to change the value of Tsc_init to robot.Tsc_init_2 and Tsc_final to robot.Tsc_final_2 in the code timing_calc.py. To execute the code for overshoot, the gain values of P and I should be changed to 2 and 5 in the variables.py code.
+![Robot Output](results/best/output.gif)
+
+## Overview
+This project implements a mobile-manipulator robot control system through a series of Python scripts, organized into milestones. Each script handles specific functionalities, from state prediction to trajectory generation and control. The project includes six main files, described below, along with instructions for executing a new task and achieving overshoot behavior.
+
+## Files and Milestones
+
+### Milestone 1: State Prediction
+- **File**: `nextState.py`
+- **Description**: Predicts the next state of the robot given its initial configuration and current speeds. The `NextState` function returns a 12-element vector representing the new state. It utilizes helper functions `NextStateWheels` and `AngleUpdate` to compute the robot's next state based on wheel and joint dynamics.
+
+### Milestone 2: Trajectory Generation
+- **Files**:
+  - `timing_calc.py`
+  - `trajectory_generator.py`
+- **Description**:
+  - `timing_calc.py`: Calculates the time duration and sequence of operations for the robot's trajectory.
+  - `trajectory_generator.py`: Generates a screw trajectory based on the timing calculations and saves the results to a CSV file.
+
+### Milestone 3: Control Systems
+- **File**: `feedback_control.py`
+- **Description**: Implements feedforward and feedback control for the robot. The script computes the Jacobian matrix (6xN), incorporating both the arm and base dynamics. The `FeedbackControl` function returns the robot's speed commands and error values.
+
+### Execution
+- **File**: `final_code.py`
+- **Description**: Executes the control pipeline and generates CSV files containing the 13-element state vector, which includes wheel angles, joint angles, robot position, and gripper state.
+
+### Variable Definitions
+- **File**: `variables.py`
+- **Description**: Defines matrices and variables used across the project. Each variable is documented within the script for clarity.
+
+## New Task Configuration
+To perform the new task, modify the following in `timing_calc.py`:
+- Set `Tsc_init` to `robot.Tsc_init_2`.
+- Set `Tsc_final` to `robot.Tsc_final_2`.
+
+## Overshoot Behavior
+To achieve overshoot in the control system, update the gain values in `variables.py`:
+- Set the proportional gain (`P`) to `2`.
+- Set the integral gain (`I`) to `5`.
+
+## Usage
+1. Ensure all dependencies are installed (refer to `variables.py` for required libraries or configurations).
+2. Run `final_code.py` to execute the full pipeline and generate the state trajectory CSV files.
+3. For the new task, update `timing_calc.py` as described above.
+4. For overshoot, adjust the gain values in `variables.py` as specified.
