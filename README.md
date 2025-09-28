@@ -43,6 +43,7 @@ To achieve overshoot in the control system, update the gain values in `variables
 
 ## Usage
 1. Ensure all dependencies are installed (refer to `variables.py` for required libraries or configurations).
-2. Run `final_code.py` to execute the full pipeline and generate the state trajectory CSV files.
-3. For the new task, update `timing_calc.py` as described above.
-4. For overshoot, adjust the gain values in `variables.py` as specified.
+2. Run the file `Scene6_youBot_cube.ttt` in V-REP
+3. Run `final_code.py` to execute the full pipeline and generate the state trajectory CSV files.
+4. For the new task, update `timing_calc.py` as described above.
+5. For overshoot, adjust the gain values in `variables.py` as specified.
